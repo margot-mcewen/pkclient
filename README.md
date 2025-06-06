@@ -61,7 +61,7 @@ pk.stop_server()
 
 ## to-do
 
-- test more
-- better error detection
-- quiet option
-- no-frills version (no rich or nerd-fonts)
+- [ ] test more
+- [ ] better error detection
+- [ ] quiet option
+- [ ] no-frills version (no rich or nerd-fonts)
