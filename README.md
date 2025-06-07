@@ -53,9 +53,10 @@ pk.set_aperture(2.8)
 pk.set_shutter_speed("1/4")
 pk.set_iso(800)
 pk.delete_buffer(0)  # so you know your next photo will be in buffer 0 of 9
+pk.get_buffer_type()
 pk.set_buffer_type("DNG")  # can be DNG or PEF
 pk.shutter()
-pk.get_buffer(0, "photograph_0")  # save to CWD
+pk.get_buffer(0, "photograph_0")  # save image to CWD
 pk.stop_server()
 ```
 
