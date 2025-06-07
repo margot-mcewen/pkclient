@@ -1,8 +1,7 @@
 # pkclient
-Python client for pktriggercord server, remote control of Pentax cameras
+A Python client for the pktriggercord server, allowing remote control of Pentax DSLR cameras.
 
 ![Screenshot from 2025-06-06 22-22-38](https://github.com/user-attachments/assets/ea16dd75-bd95-4abf-b697-9579dfe1d321)
-
 
 I'm not a very good programmer, so if this breaks your camera it's not my fault. I've tried to put in some protections to stop you from doing anything really stupid (e.g. overflowing the camera's buffer).
 
@@ -27,19 +26,25 @@ pip3 install rich
 
 ### Server
 
-- Plug your camera into your server, switch it on, and run:
+Plug your camera into a computer, switch the camera on, and run:
 
-  ``` bash
-  pktriggercord-cli --servermode
-  ```
+``` bash
+pktriggercord-cli --servermode
+```
 
 ### Client
 
-- On the same computer, or on a seperate computer, run:
+On the either the same computer or on a seperate computer, run:
 
-  ``` bash
-  python3 pkclient.py
-  ```
+``` bash
+python3 pkclient.py
+```
+
+> [!CAUTION]
+> The camera's buffer can only hold 9 images at once.[^1]
+> If you try to write more without deleting any buffers your camera will stop working until you perform a hard reset by pulling the battery.
+
+[^1]: This is true of the K-5 IIs, a safe way to test if buffer `n` exists is by using `pk.delete_buffer(n)` and seeing if an error is reported server side
 
 ## Features
 
@@ -52,7 +57,7 @@ pk.focus()
 pk.set_aperture(2.8)
 pk.set_shutter_speed("1/4")
 pk.set_iso(800)
-pk.delete_buffer(0)  # so you know your next photo will be in buffer 0 of 9
+pk.delete_buffer(0)  # so you know your next photo will be in buffer 0
 pk.get_buffer_type()
 pk.set_buffer_type("DNG")  # can be DNG or PEF
 pk.shutter()
