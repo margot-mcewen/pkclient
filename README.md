@@ -67,6 +67,7 @@ pk.stop_server()
 
 ## to-do
 
+- [ ] more robust buffer protection
 - [ ] test more
 - [ ] better error detection
 - [ ] quiet option
